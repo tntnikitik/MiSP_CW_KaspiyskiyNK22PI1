@@ -84,18 +84,26 @@ bool server::handling()
 {
     uint32_t vectors_quantity;
     uint32_t vector_size;
-    int64_t vector;
+    uint64_t vector;
+    uint64_t maxVal = numeric_limits<uint64_t>::max();
     recv(wrkr, &vectors_quantity, sizeof(vectors_quantity), 0);
     for (uint32_t i = 0; i < vectors_quantity; i++) {
-        uint64_t sum = 1;
+        us   int64_t sum = 1;
         recv(wrkr, &vector_size, sizeof(vector_size), 0);
         for (uint32_t j = 0; j < vector_size; j++) {
             recv(wrkr, &vector, sizeof(vector), 0);
+
             sum = sum*vector;
+            if (sum >= maxVal) {
+                sum = maxVal-1;
+                break;
+            }
         }
-            int64_t answer;
-            answer = sum; //vector_size;
-            send(wrkr, &answer, sizeof(answer), 0);
-        }
-        return true;
-    };
+        uint64_t answer;
+
+
+        answer = sum; //vector_size;
+        send(wrkr, &answer, sizeof(answer), 0);
+    }
+    return true;
+};
