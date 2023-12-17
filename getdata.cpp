@@ -1,3 +1,10 @@
+/** @file getdata.сpp
+ * @author Каспийский Н. К.
+ * @version 1.0
+ * @brief Класс, обрабатывающий файл с ID:PASS клиентов (реализация)
+ * @date 17.12.2023
+ * @copyright ИБСТ ПГУ
+ */
 #include "headers/getdata.hpp"
 using namespace std;
 getdata::getdata(const string lpath)

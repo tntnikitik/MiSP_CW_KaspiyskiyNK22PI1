@@ -1,32 +1,31 @@
+/** @file md5Hash.cpp
+ * @author Каспийский Н. К.
+ * @version 1.0
+ * @brief Класс, обрабатывабщий HASH MD5 (реализация)
+ * @date 17.12.2023
+ * @copyright ИБСТ ПГУ
+ */
 #include "headers/md5hash.hpp"
 #include <cryptopp/hex.h>
 #define CRYPTOPP_ENABLE_NAMESPACE_WEAK 1
 #include <cryptopp/md5.h>
 #include <iostream>
-#include <unistd.h> // для генератора соли
-#include <ctime> // для генератора соли
-
+#include <unistd.h> 
+#include <ctime> 
 using namespace std;
-
 
 md5h::md5h(){
 	salt = salt_generator();
 	}
 	
-
 string md5h::hash(const string password){
 	using namespace CryptoPP;
-	
     Weak::MD5 hash;
-
     std::string msg = salt + password;
-
     std::string digest;
-
     StringSource(msg, true,           
                  new HashFilter(hash,      
                                 new HexEncoder(     
-                                //new Base64Encoder(   // альтернатива - кодировщик в base64
                                     new StringSink(digest))));
     return digest;
 }

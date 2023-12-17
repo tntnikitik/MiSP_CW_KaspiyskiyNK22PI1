@@ -1,3 +1,10 @@
+/** @file server.сpp
+ * @author Каспийский Н. К.
+ * @version 1.0
+ * @brief Класс, управляющий работой сервера (реализация)
+ * @date 17.12.2023
+ * @copyright ИБСТ ПГУ
+ */
 #include "headers/server.hpp"
 #include "headers/errorhandler.hpp"
 #include "headers/getdata.hpp"
@@ -9,11 +16,8 @@ server::server(string fpath, int port, string lpath)
 {
     lp = lpath;
     char* ip="127.0.0.1";
-
     userdata = getdata(lp).get(fpath);
-
     sckt = start(port, ip);
-
 }
 
 int server::start(int port, char* address)
@@ -32,7 +36,7 @@ int server::start(int port, char* address)
     return sckt;
 }
 
-int  server::accepting_connection()
+int server::accepting_connection()
 {
     sockaddr_in* remoteAddr = new (sockaddr_in);
     remoteAddr->sin_family = AF_INET;
@@ -88,21 +92,19 @@ bool server::handling()
     uint64_t maxVal = numeric_limits<uint64_t>::max();
     recv(wrkr, &vectors_quantity, sizeof(vectors_quantity), 0);
     for (uint32_t i = 0; i < vectors_quantity; i++) {
-        us   int64_t sum = 1;
+        int64_t sum = 1;
         recv(wrkr, &vector_size, sizeof(vector_size), 0);
         for (uint32_t j = 0; j < vector_size; j++) {
             recv(wrkr, &vector, sizeof(vector), 0);
-
-            sum = sum*vector;
-            if (sum >= maxVal) {
-                sum = maxVal-1;
-                break;
+            if ((sum*vector)/vector == sum) {
+                sum = sum*vector;
+            } else {
+                sum = maxVal/2;
             }
         }
         uint64_t answer;
 
-
-        answer = sum; //vector_size;
+        answer = sum;
         send(wrkr, &answer, sizeof(answer), 0);
     }
     return true;

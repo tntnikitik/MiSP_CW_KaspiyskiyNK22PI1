@@ -1,11 +1,10 @@
-/**
-* @file md5Hash.hpp
-* @author Гусев Д. А.
-* @version 1.0
-* @brief Класс, обрабатывабщий HASH MD5
-* @date 23.05.2023
-* @copyright ИБСТ ПГУ
-*/
+/** @file md5Hash.hpp
+ * @author Каспийский Н. К.
+ * @version 1.0
+ * @brief Класс, обрабатывабщий HASH MD5
+ * @date 17.12.2023
+ * @copyright ИБСТ ПГУ
+ */
 #pragma once
 #include <cryptopp/hex.h>
 #define CRYPTOPP_ENABLE_NAMESPACE_WEAK 1
@@ -19,21 +18,21 @@ class md5h
 {
 private:
 	/**
-	* @brief Генератор соли
-	* @return tmp_s соль
-	*/
+	 * @brief Генератор соли
+	 * @return tmp_s Соль
+	 */
 	string salt_generator();
 public:
 	/**
-	* @brief конструктор класса
-	*/
+	 * @brief Конструктор класса
+	 */
 	md5h();
-	//!Соль
+	///Соль
 	string salt;
 	/**
-	* @brief Получение хеша от пароля
-	* @param password пароль
-	* @return digest хеш
-	*/
+	 * @brief Получение хэша от пароля
+	 * @param password Пароль
+	 * @return digest Хэш от пароля
+	 */
 	string hash(const string password);
 };

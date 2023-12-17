@@ -1,3 +1,10 @@
+/** @file main.cpp
+ * @author Каспийский Н. К.
+ * @version 1.0
+ * @brief Функция вывода справки и точка входа в программу
+ * @date 17.12.2023
+ * @copyright ИБСТ ПГУ
+ */
 #include <iostream>
 #include <string>
 #include "headers/server.hpp"
