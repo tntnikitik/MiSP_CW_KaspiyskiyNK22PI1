@@ -68,19 +68,56 @@ $(function() {
 <div class="contents">
 <a href="errorhandler_8hpp.html">См. документацию.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;fstream&gt;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;ctime&gt;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;chrono&gt;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="classerrorhandler.html">   16</a></span>&#160;<span class="keyword">class </span><a class="code" href="classerrorhandler.html">errorhandler</a>{</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classerrorhandler.html#a360d472a2355bbaa4eeecb19761da2b8">logger</a>(<span class="keyword">const</span> std::string lpath, <span class="keyword">const</span> <span class="keywordtype">char</span>* why, <span class="keyword">const</span> std::string dtime, <span class="keyword">const</span> std::string critical);</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <a class="code" href="classerrorhandler.html#a3021ee36d3790f2a019e73c3cf42c0ea">errorhandler</a>(<span class="keyword">const</span> std::string lpath, <span class="keyword">const</span> <span class="keywordtype">char</span>* why, <span class="keyword">const</span> <span class="keywordtype">int</span> exitCode, <span class="keywordtype">bool</span> critical);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;};</div>
-<div class="ttc" id="aclasserrorhandler_html"><div class="ttname"><a href="classerrorhandler.html">errorhandler</a></div><div class="ttdoc">Класс обработки ошибок</div><div class="ttdef"><b>Definition:</b> errorhandler.hpp:16</div></div>
-<div class="ttc" id="aclasserrorhandler_html_a3021ee36d3790f2a019e73c3cf42c0ea"><div class="ttname"><a href="classerrorhandler.html#a3021ee36d3790f2a019e73c3cf42c0ea">errorhandler::errorhandler</a></div><div class="ttdeci">errorhandler(const std::string lpath, const char *why, const int exitCode, bool critical)</div><div class="ttdoc">Конструктор класса</div><div class="ttdef"><b>Definition:</b> errorhandler.cpp:12</div></div>
-<div class="ttc" id="aclasserrorhandler_html_a360d472a2355bbaa4eeecb19761da2b8"><div class="ttname"><a href="classerrorhandler.html#a360d472a2355bbaa4eeecb19761da2b8">errorhandler::logger</a></div><div class="ttdeci">void logger(const std::string lpath, const char *why, const std::string dtime, const std::string critical)</div><div class="ttdoc">Функция записи ошибок в журнал</div><div class="ttdef"><b>Definition:</b> errorhandler.cpp:31</div></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;fstream&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;ctime&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;chrono&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;stdexcept&gt;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="classlog__err.html">   18</a></span>&#160;<span class="keyword">class </span><a class="code" href="classlog__err.html">log_err</a>: <span class="keyword">public</span> std::runtime_error</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="classlog__err.html#ae0ddb0759c3e9954e513c08730563a7f">   21</a></span>&#160;    <a class="code" href="classlog__err.html#ae0ddb0759c3e9954e513c08730563a7f">log_err</a>(<span class="keyword">const</span> std::string&amp; s) : std::runtime_error(s) {}</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="classlog__err.html#a7e2be4fd85d09f5a5eaf85855680c6ec">   22</a></span>&#160;    <a class="code" href="classlog__err.html#a7e2be4fd85d09f5a5eaf85855680c6ec">log_err</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> * s) : std::runtime_error(s) {}</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;};</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="classauth__err.html">   28</a></span>&#160;<span class="keyword">class </span><a class="code" href="classauth__err.html">auth_err</a>: <span class="keyword">public</span> std::invalid_argument</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="classauth__err.html#aa0e6290b2b250ddfd6196ec7b611a892">   31</a></span>&#160;    <a class="code" href="classauth__err.html#aa0e6290b2b250ddfd6196ec7b611a892">auth_err</a>(<span class="keyword">const</span> std::string&amp; s) : std::invalid_argument(s) {}</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="classauth__err.html#a1028c2aabdd02eb879530cc0e2ea7c08">   32</a></span>&#160;    <a class="code" href="classauth__err.html#a1028c2aabdd02eb879530cc0e2ea7c08">auth_err</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> * s) : std::invalid_argument(s) {}</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;};</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="classread__err.html">   37</a></span>&#160;<span class="keyword">class </span><a class="code" href="classread__err.html">read_err</a>: <span class="keyword">public</span> std::invalid_argument</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;{</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="classread__err.html#ad55dbf648bbf9e710a525a7237e3a492">   40</a></span>&#160;    <a class="code" href="classread__err.html#ad55dbf648bbf9e710a525a7237e3a492">read_err</a>(<span class="keyword">const</span> std::string&amp; s) : std::invalid_argument(s) {}</div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="classread__err.html#a340b6bee4b492c4ab7db0bfcba4b4e11">   41</a></span>&#160;    <a class="code" href="classread__err.html#a340b6bee4b492c4ab7db0bfcba4b4e11">read_err</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> * s) : std::invalid_argument(s) {}</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;};</div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="errorhandler_8hpp.html#a7b4aa3455116920e9d4495adc8147376">   49</a></span>&#160;<span class="keyword">inline</span> std::string <a class="code" href="errorhandler_8hpp.html#a7b4aa3455116920e9d4495adc8147376">logger</a>(std::string lp, std::string what)</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;{</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    std::string log_s;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    std::ofstream file(lp.c_str(), std::ios::app);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordflow">if</span> (file.is_open()) {</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        std::time_t now = time(0);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        std::string date = std::ctime(&amp;now);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        log_s = <span class="stringliteral">&quot; - &quot;</span> + what + <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        file &lt;&lt; date+log_s;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        file.close();</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="classlog__err.html">log_err</a>(<span class="stringliteral">&quot;Error opening log file&quot;</span>);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    }</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordflow">return</span> log_s;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;}</div>
+<div class="ttc" id="aclassauth__err_html"><div class="ttname"><a href="classauth__err.html">auth_err</a></div><div class="ttdoc">Класс обработки ошибок аутентификации</div><div class="ttdef"><b>Definition:</b> errorhandler.hpp:29</div></div>
+<div class="ttc" id="aclassauth__err_html_a1028c2aabdd02eb879530cc0e2ea7c08"><div class="ttname"><a href="classauth__err.html#a1028c2aabdd02eb879530cc0e2ea7c08">auth_err::auth_err</a></div><div class="ttdeci">auth_err(const char *s)</div><div class="ttdef"><b>Definition:</b> errorhandler.hpp:32</div></div>
+<div class="ttc" id="aclassauth__err_html_aa0e6290b2b250ddfd6196ec7b611a892"><div class="ttname"><a href="classauth__err.html#aa0e6290b2b250ddfd6196ec7b611a892">auth_err::auth_err</a></div><div class="ttdeci">auth_err(const std::string &amp;s)</div><div class="ttdef"><b>Definition:</b> errorhandler.hpp:31</div></div>
+<div class="ttc" id="aclasslog__err_html"><div class="ttname"><a href="classlog__err.html">log_err</a></div><div class="ttdoc">Класс обработки ошибок записи в журнал</div><div class="ttdef"><b>Definition:</b> errorhandler.hpp:19</div></div>
+<div class="ttc" id="aclasslog__err_html_a7e2be4fd85d09f5a5eaf85855680c6ec"><div class="ttname"><a href="classlog__err.html#a7e2be4fd85d09f5a5eaf85855680c6ec">log_err::log_err</a></div><div class="ttdeci">log_err(const char *s)</div><div class="ttdef"><b>Definition:</b> errorhandler.hpp:22</div></div>
+<div class="ttc" id="aclasslog__err_html_ae0ddb0759c3e9954e513c08730563a7f"><div class="ttname"><a href="classlog__err.html#ae0ddb0759c3e9954e513c08730563a7f">log_err::log_err</a></div><div class="ttdeci">log_err(const std::string &amp;s)</div><div class="ttdef"><b>Definition:</b> errorhandler.hpp:21</div></div>
+<div class="ttc" id="aclassread__err_html"><div class="ttname"><a href="classread__err.html">read_err</a></div><div class="ttdoc">Класс обработки ошибок чтения</div><div class="ttdef"><b>Definition:</b> errorhandler.hpp:38</div></div>
+<div class="ttc" id="aclassread__err_html_a340b6bee4b492c4ab7db0bfcba4b4e11"><div class="ttname"><a href="classread__err.html#a340b6bee4b492c4ab7db0bfcba4b4e11">read_err::read_err</a></div><div class="ttdeci">read_err(const char *s)</div><div class="ttdef"><b>Definition:</b> errorhandler.hpp:41</div></div>
+<div class="ttc" id="aclassread__err_html_ad55dbf648bbf9e710a525a7237e3a492"><div class="ttname"><a href="classread__err.html#ad55dbf648bbf9e710a525a7237e3a492">read_err::read_err</a></div><div class="ttdeci">read_err(const std::string &amp;s)</div><div class="ttdef"><b>Definition:</b> errorhandler.hpp:40</div></div>
+<div class="ttc" id="aerrorhandler_8hpp_html_a7b4aa3455116920e9d4495adc8147376"><div class="ttname"><a href="errorhandler_8hpp.html#a7b4aa3455116920e9d4495adc8147376">logger</a></div><div class="ttdeci">std::string logger(std::string lp, std::string what)</div><div class="ttdoc">Функция записи ошибок в журнал</div><div class="ttdef"><b>Definition:</b> errorhandler.hpp:49</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

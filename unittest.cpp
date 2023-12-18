@@ -14,7 +14,7 @@ struct Server_fixture {
     ~Server_fixture()
     {
         delete pointer;
-    }
+    } 
 };
 SUITE(ServerTests)
 {
@@ -40,15 +40,35 @@ SUITE(GetDataTests)
         string fpath = "/home/stud/Desktop/kursach/kursachCode/SERVER/database.txt";
         CHECK_EQUAL(true, userdata == getdata(lpath).get(fpath));
     }
-}
-SUITE(ErrorhandlerTests)
-{
-    TEST(ErrorhandlerConstructor) {
+    TEST(GetInvalidUserData) {
         string lpath = "log.txt";
-        int exitCode = 1;
-        bool critical = false;
-        errorhandler test(lpath, "some trouble here", exitCode, critical);
+        string fpath = "/home/stud/Desktop/kursach/kursachCode/SERVER/beb.txt";
+        CHECK_THROW(getdata(lpath).get(fpath), read_err);
+    }
+}
+SUITE(HashTest)
+{
+    TEST(ValidHashGen) {
+        md5h test;
+        string pass1 = "P@ssW0rd";
+        string pass2 = "P@ssW0rd";
+        CHECK_EQUAL(true, test.hash(pass1) == test.hash(pass2));
+    }
+    TEST(StrongHashGen) {
+        md5h test;
+        string pass1 = "P@ssW0rd";
+        string pass2 = "P@ssW0rd1";
+        CHECK_EQUAL(false, test.hash(pass1) == test.hash(pass2));
+    }
+}
+SUITE(ErrorLoggingTest)
+{
+    TEST(ValidLogFile) {
+        logger("log.txt", "some trouble");
         CHECK(true);
+    }
+    TEST(InvalidLogFile) {
+        CHECK_THROW(logger("", "some trouble"), log_err);
     }
 }
 int main(int argc, char **argv)

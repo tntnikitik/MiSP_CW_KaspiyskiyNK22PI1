@@ -45,14 +45,18 @@ int main(int argc, const char* argv[])
         help();
         return 1;
     }
-
+    try {   
     server srvr = server(fpath, port, lpath);
-
     while (true) {
         srvr.accepting_connection();
         if (srvr.authentication() == true)
             srvr.handling();
     }
-
+    } catch(log_err &e) {
+        std::cerr << e.what() << std::endl;
+    } catch(std::exception &e) {
+        std::cerr << e.what() << std::endl;
+        logger(lpath, e.what());
+    }
     return 0;
 }

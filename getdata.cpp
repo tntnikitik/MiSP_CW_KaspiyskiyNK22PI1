@@ -28,7 +28,7 @@ map <string, string> getdata::get(string fpath)
             userdata[ID] = password;
         }
     } else
-        errorhandler(lp, "failed open client base file", 4, true);
+        throw read_err("Failed to open database");
     in.close();
     return userdata;
 }

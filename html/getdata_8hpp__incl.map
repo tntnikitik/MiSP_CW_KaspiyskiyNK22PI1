@@ -1,9 +1,11 @@
 <map id="getdata.hpp" name="getdata.hpp">
-<area shape="rect" id="node1" title="Класс, обрабатывающий файл с ID:PASS клиентов" alt="" coords="125,5,225,32"/>
+<area shape="rect" id="node1" title="Класс, обрабатывающий файл с ID:PASS клиентов" alt="" coords="143,5,243,32"/>
 <area shape="rect" id="node2" title=" " alt="" coords="5,155,85,181"/>
 <area shape="rect" id="node3" title=" " alt="" coords="110,155,183,181"/>
-<area shape="rect" id="node4" title=" " alt="" coords="316,80,367,107"/>
-<area shape="rect" id="node5" href="$errorhandler_8hpp.html" title="Класс обработки ошибок с записью в журнал" alt="" coords="161,80,292,107"/>
-<area shape="rect" id="node6" title=" " alt="" coords="208,155,267,181"/>
-<area shape="rect" id="node7" title=" " alt="" coords="291,155,357,181"/>
+<area shape="rect" id="node4" title=" " alt="" coords="335,80,385,107"/>
+<area shape="rect" id="node5" href="$errorhandler_8hpp.html" title="Класс обработки ошибок с записью в журнал" alt="" coords="180,80,311,107"/>
+<area shape="rect" id="node6" title=" " alt="" coords="411,155,469,181"/>
+<area shape="rect" id="node7" title=" " alt="" coords="493,155,552,181"/>
+<area shape="rect" id="node8" title=" " alt="" coords="208,155,275,181"/>
+<area shape="rect" id="node9" title=" " alt="" coords="299,155,386,181"/>
 </map>

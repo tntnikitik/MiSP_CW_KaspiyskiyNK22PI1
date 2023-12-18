@@ -63,7 +63,8 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Классы</a>  </div>
+<a href="#nested-classes">Классы</a> &#124;
+<a href="#func-members">Функции</a>  </div>
   <div class="headertitle">
 <div class="title">Файл errorhandler.hpp</div>  </div>
 </div><!--header-->
@@ -71,20 +72,24 @@ $(function() {
 
 <p>Класс обработки ошибок с записью в журнал  
 <a href="#details">Подробнее...</a></p>
-<div class="textblock"><code>#include &lt;iostream&gt;</code><br />
+<div class="textblock"><code>#include &lt;string&gt;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
 <code>#include &lt;fstream&gt;</code><br />
 <code>#include &lt;ctime&gt;</code><br />
 <code>#include &lt;chrono&gt;</code><br />
+<code>#include &lt;stdexcept&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Граф включаемых заголовочных файлов для errorhandler.hpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="errorhandler_8hpp__incl.png" border="0" usemap="#aerrorhandler_8hpp" alt=""/></div>
 <map name="aerrorhandler_8hpp" id="aerrorhandler_8hpp">
-<area shape="rect" title="Класс обработки ошибок с записью в журнал" alt="" coords="127,5,257,32"/>
-<area shape="rect" title=" " alt="" coords="5,80,85,107"/>
-<area shape="rect" title=" " alt="" coords="110,80,183,107"/>
-<area shape="rect" title=" " alt="" coords="208,80,267,107"/>
-<area shape="rect" title=" " alt="" coords="291,80,357,107"/>
+<area shape="rect" title="Класс обработки ошибок с записью в журнал" alt="" coords="209,5,340,32"/>
+<area shape="rect" title=" " alt="" coords="5,80,64,107"/>
+<area shape="rect" title=" " alt="" coords="88,80,168,107"/>
+<area shape="rect" title=" " alt="" coords="193,80,266,107"/>
+<area shape="rect" title=" " alt="" coords="291,80,349,107"/>
+<area shape="rect" title=" " alt="" coords="373,80,440,107"/>
+<area shape="rect" title=" " alt="" coords="465,80,551,107"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -101,9 +106,21 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Классы</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classerrorhandler.html">errorhandler</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Класс обработки ошибок  <a href="classerrorhandler.html#details">Подробнее...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlog__err.html">log_err</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Класс обработки ошибок записи в журнал  <a href="classlog__err.html#details">Подробнее...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classauth__err.html">auth_err</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Класс обработки ошибок аутентификации  <a href="classauth__err.html#details">Подробнее...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classread__err.html">read_err</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Класс обработки ошибок чтения  <a href="classread__err.html#details">Подробнее...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:a7b4aa3455116920e9d4495adc8147376"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="errorhandler_8hpp.html#a7b4aa3455116920e9d4495adc8147376">logger</a> (std::string lp, std::string what)</td></tr>
+<tr class="memdesc:a7b4aa3455116920e9d4495adc8147376"><td class="mdescLeft">&#160;</td><td class="mdescRight">Функция записи ошибок в журнал  <a href="errorhandler_8hpp.html#a7b4aa3455116920e9d4495adc8147376">Подробнее...</a><br /></td></tr>
+<tr class="separator:a7b4aa3455116920e9d4495adc8147376"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
 <div class="textblock"><p>Класс обработки ошибок с записью в журнал </p>
@@ -111,7 +128,54 @@ $(function() {
 <dl class="section version"><dt>Версия</dt><dd>1.0 </dd></dl>
 <dl class="section date"><dt>Дата</dt><dd>17.12.2023 </dd></dl>
 <dl class="section copyright"><dt>Авторство</dt><dd>ИБСТ ПГУ </dd></dl>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Функции</h2>
+<a id="a7b4aa3455116920e9d4495adc8147376"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b4aa3455116920e9d4495adc8147376">&#9670;&nbsp;</a></span>logger()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string logger </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>lp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>what</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Функция записи ошибок в журнал </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lp</td><td>Путь к файлу журнала </td></tr>
+    <tr><td class="paramname">what</td><td>Содержание ошибки </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>log_s Строка с логом ошибки </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1

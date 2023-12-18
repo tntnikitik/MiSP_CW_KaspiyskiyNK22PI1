@@ -29,7 +29,7 @@ int server::start(int port, char* address)
     int sckt = socket(AF_INET, SOCK_STREAM, 0);
     int rc = bind(sckt, (const sockaddr*)selfAddr, sizeof(sockaddr_in));
     if (rc == -1) {
-        errorhandler(lp, "failed to bind socket", 1, true);
+        throw std::system_error(errno, std::generic_category(), "Failed to bind socket");
     }
     listen(sckt, 3);
     cout << "The server start" << endl;
@@ -64,7 +64,7 @@ bool server::authentication()
         strcpy(buf, err.c_str());
         send(wrkr, buf, sizeof(buf), 0);
         close(wrkr);
-        errorhandler(lp, "invalid client id", 2, false);
+        throw auth_err("Invalid client id");
         return false;
     }
     cout << "The client has been identified" << endl;
@@ -75,7 +75,7 @@ bool server::authentication()
         strcpy(buf, err.c_str());
         send(wrkr, buf, err.length(), 0);
         close(wrkr);
-        errorhandler(lp, "invalid password", 3, false);
+        throw auth_err("Invalid password");
         return false;
     }
     strcpy(buf, ok.c_str());

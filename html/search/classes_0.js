@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['errorhandler_31',['errorhandler',['../classerrorhandler.html',1,'']]]
+  ['auth_5ferr_32',['auth_err',['../classauth__err.html',1,'']]]
 ];

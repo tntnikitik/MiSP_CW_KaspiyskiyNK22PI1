@@ -1,0 +1,21 @@
+.PHONY: all clean test format
+
+CXX=g++
+OFLAGS=-O2 -Wall -DNDEBUG
+LDFLAGS=-lUnitTest++ -lcryptopp
+
+SOURCES=server.cpp unittest.cpp getdata.cpp md5hash.cpp
+HEADERS=headers/server.hpp headers/errorhandler.hpp headers/getdata.hpp headers/md5hash.hpp
+EXECUTABLE=UnitTest
+
+
+$(EXECUTABLE): $(SOURCES)
+	$(CXX)  $(SOURCES)  -o $(EXECUTABLE) $(OFLAGS) $(LDFLAGS)
+
+test: $(EXECUTABLE)
+	./$(EXECUTABLE) 
+
+format:
+	astyle $(SOURCES) $(HEADERS)
+clean:
+	rm -f $(EXECUTABLE) *.orig
