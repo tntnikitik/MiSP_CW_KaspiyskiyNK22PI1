@@ -38,7 +38,7 @@ struct {
 
 void help()
 {
-    std::cout << "enter -h for help;\nenter -fp for the path to the database with clients;\nenter -lp for the path to the log file;\nenter -p for the port\n";
+    std::cout << "enter -h / --help for help;\nenter -f / --database-path for the path to the database with clients;\nenter -l / --log-path for the path to the log file;\nenter -p / --port for the port\n";
 }
 
 int main(int argc, const char* argv[])
