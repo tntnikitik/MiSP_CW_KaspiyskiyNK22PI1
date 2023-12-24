@@ -25,6 +25,12 @@ SUITE(ServerTests)
         server test(fpath, port, lpath);
         CHECK(true);
     }
+    TEST(BadPort) {
+        string fpath = "database.txt";
+        int port = 1000;
+        string lpath = "log.txt";
+        CHECK_THROW(server test(fpath, port, lpath), std::system_error);
+    }
 }
 SUITE(GetDataTests)
 {

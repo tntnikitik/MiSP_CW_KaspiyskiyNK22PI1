@@ -69,9 +69,6 @@ int main(int argc, const char* argv[])
         if (params.p_not_set() && params.b_not_set() && params.l_not_set()) {
             help();
         }
-        if ((port < 1024) or (port > 65536)) {
-            throw std::system_error(errno, std::generic_category(), "Bad port");
-        }
         server srvr = server(fpath, port, lpath);
         while (true) {
             srvr.accepting_connection();
