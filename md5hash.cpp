@@ -33,8 +33,7 @@ string md5h::salt_generator(){
 	srand(time(NULL));
 	static const char alphanum[] =
         "0123456789"
-        "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-        "abcdefghijklmnopqrstuvwxyz";
+        "ABCDEF";
     string tmp_s;
     tmp_s.reserve(16);
     for (int i = 0; i < 16; ++i) {
