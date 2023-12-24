@@ -42,7 +42,7 @@ SUITE(GetDataTests)
     }
     TEST(GetInvalidUserData) {
         string lpath = "log.txt";
-        string fpath = "/home/stud/Desktop/kursach/kursachCode/SERVER/beb.txt";
+        string fpath = "beb.txt";
         CHECK_THROW(getdata(lpath).get(fpath), read_err);
     }
 }
