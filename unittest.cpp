@@ -19,7 +19,7 @@ struct Server_fixture {
 SUITE(ServerTests)
 {
     TEST(ServerConstructor) {
-        string fpath = "/home/stud/Desktop/kursach/kursachCode/SERVER/database.txt";
+        string fpath = "database.txt";
         int port = 33333;
         string lpath = "log.txt";
         server test(fpath, port, lpath);
@@ -37,7 +37,7 @@ SUITE(GetDataTests)
         string lpath = "log.txt";
         map <string, string> userdata;
         userdata["user"] = "P@ssW0rd";
-        string fpath = "/home/stud/Desktop/kursach/kursachCode/SERVER/database.txt";
+        string fpath = "database.txt";
         CHECK_EQUAL(true, userdata == getdata(lpath).get(fpath));
     }
     TEST(GetInvalidUserData) {
