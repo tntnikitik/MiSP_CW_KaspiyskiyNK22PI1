@@ -5,17 +5,6 @@
 #include "headers/md5hash.hpp"
 
 using namespace std;
-struct Server_fixture {
-    server * pointer;
-    Server_fixture()
-    {
-        pointer = new server("/home/stud/Desktop/kursach/kursachCode/SERVER/database.txt", 33333, "log.txt");
-    }
-    ~Server_fixture()
-    {
-        delete pointer;
-    } 
-};
 SUITE(ServerTests)
 {
     TEST(ServerConstructor) {
