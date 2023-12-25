@@ -2,7 +2,7 @@ CXX := g++
 CXXFLAGS := -std=c++11 -Wall
 LDFLAGS := -lcryptopp -lboost_program_options
 
-SRCS := errorhandler.cpp getdata.cpp main.cpp md5hash.cpp server.cpp
+SRCS := getdata.cpp main.cpp md5hash.cpp server.cpp
 OBJS := $(SRCS:.cpp=.o)
 EXEC := server
 
